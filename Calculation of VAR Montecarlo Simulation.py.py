@@ -15,7 +15,7 @@ import yfinance as yf
 # In[4]:
 
 
-years=15
+years=20
 endDate= dt.datetime.now()
 startDate=endDate-dt.timedelta(days=365*years)
 
@@ -88,7 +88,7 @@ def random_z_score():
 # In[39]:
 
 
-days=20
+days=30
 def scenario_gain_loss(portfolio_value,portfolio_std_dev,random_z_score,days):
     return portfolio_value*portfolio_expected_return*days+portfolio_value*portfolio_std_dev*random_z_score*np.sqrt(days)
 
@@ -114,8 +114,8 @@ print(VaR)
 
 # In[45]:
 
-
-plt.hist(scenarioReturn,bins=50,density=True)
+    
+plt.hist(scenarioReturn,bins=50,density=True,color="black")
 plt.xlabel('Scenario Gain/Loss($)')
 plt.ylabel('Frequency')
 plt.title(f'Distribution of Porfolio gains/Loss over {days} Days')
